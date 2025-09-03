@@ -3,22 +3,26 @@ import products from "./data/products";
 
 function App() {
   return (
-    <main>
+    <section className="product-section">
       <h1>Snackbar</h1>
-      <ul>
+      <ul className="product-list">
         {products.map((product) => (
-          <li key={product.id}>
-            {product.name}
+          <li key={product.id} className="product-card">
             <img
               src={product.image}
               alt={product.name}
               className="product-image"
             />
-            <p>{product.price}</p>
+            <div className="product-info">
+              <span className="product-name">{product.name}</span>
+              <span className="product-price">
+                Legg til for kr {product.price},-
+              </span>
+            </div>
           </li>
         ))}
       </ul>
-    </main>
+    </section>
   );
 }
 
