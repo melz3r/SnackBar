@@ -1,5 +1,6 @@
 import "./App.css";
 import products from "./data/products";
+import ProductCard from "./components/ProductCard";
 
 function App() {
   return (
@@ -7,19 +8,7 @@ function App() {
       <h1>Snackbar</h1>
       <ul className="product-list">
         {products.map((product) => (
-          <li key={product.id} className="product-card">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="product-image"
-            />
-            <div className="product-info">
-              <span className="product-name">{product.name}</span>
-              <span className="product-price">
-                Legg til for kr {product.price},-
-              </span>
-            </div>
-          </li>
+          <ProductCard key={product.id} product={product} />
         ))}
       </ul>
     </section>
