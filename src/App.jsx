@@ -3,6 +3,7 @@ import products from "./data/products";
 import ProductCard from "./components/ProductCard";
 import { useState } from "react";
 import Cart from "./components/Cart";
+import FilterBar from "./components/FilterBar";
 
 export default function App() {
   const [filter, setFilter] = useState("all");
@@ -15,18 +16,18 @@ export default function App() {
 
   // legg til i handlekurv
 
-function addToCart(product) {
-  setCart((prev) => {
-    const found = prev.find((item) => item.id === product.id);
-    return found
-      ? prev.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      : [...prev, { ...product, quantity: 1 }];
-  });
-}
+  function addToCart(product) {
+    setCart((prev) => {
+      const found = prev.find((item) => item.id === product.id);
+      return found
+        ? prev.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          )
+        : [...prev, { ...product, quantity: 1 }];
+    });
+  }
 
   // summering av handlekurv
 
@@ -35,18 +36,12 @@ function addToCart(product) {
   return (
     <main>
       <h1>Snackbar</h1>
-
-      <div className="filter-bar">
-        <button onClick={() => setFilter("all")}>Vis alle produkter</button>
-        <button onClick={() => setFilter("burger")}>Hamburgere</button>
-        <button onClick={() => setFilter("hotdog")}>Pølser</button>
-        <button onClick={() => setFilter("beverage")}>Drikke</button>
-      </div>
+      <FilterBar setFilter={setFilter} />
 
       <section className="product-section">
         <ul className="product-list">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} onBuy={addToCart} />
+          {filteredProducts.map((p) => (
+            <ProductCard key={p.id} product={p} onBuy={addToCart} />
           ))}
         </ul>
       </section>
