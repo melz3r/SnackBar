@@ -39,8 +39,8 @@ function addToCart(product) {
       <div className="filter-bar">
         <button onClick={() => setFilter("all")}>Vis alle produkter</button>
         <button onClick={() => setFilter("burger")}>Hamburgere</button>
-        <button onClick={() => setFilter("polse")}>Pølser</button>
-        <button onClick={() => setFilter("drikke")}>Drikke</button>
+        <button onClick={() => setFilter("hotdog")}>Pølser</button>
+        <button onClick={() => setFilter("beverage")}>Drikke</button>
       </div>
 
       <section className="product-section">
