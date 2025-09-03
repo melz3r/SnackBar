@@ -54,3 +54,19 @@
   padding: 5px 10px;
   background-color: orange;
 }
+
+.cart-section {
+  margin-top: 2rem;
+  background: #fff;
+  color: #111;
+  padding: 1rem;
+  border-radius: 12px;
+}
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.cart-list li {
+  margin-bottom: 0.3rem;
+}
