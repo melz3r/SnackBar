@@ -34,19 +34,25 @@ export default function App() {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <main>
-      <h1>Snackbar</h1>
-      <FilterBar setFilter={setFilter} />
+    <main className="main-wrapper">
+      <div className="topbar">
+        <img src="logo.png" className="logo" alt="SNACKBAR" />
+        <FilterBar setFilter={setFilter} />
+      </div>
 
-      <section className="product-section">
-        <ul className="product-list">
-          {filteredProducts.map((p) => (
-            <ProductCard key={p.id} product={p} onBuy={addToCart} />
-          ))}
-        </ul>
-      </section>
+      <div className="layout">
+        <section className="product-section">
+          <ul className="product-list">
+            {filteredProducts.map((p) => (
+              <ProductCard key={p.id} product={p} onBuy={addToCart} />
+            ))}
+          </ul>
+        </section>
 
-      <Cart items={cart} total={total} />
+        <aside className="cart-aside">
+          <Cart items={cart} total={total} />
+        </aside>
+      </div>
     </main>
   );
 }
