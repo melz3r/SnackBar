@@ -29,6 +29,25 @@ export default function App() {
     });
   }
 
+  // fjern fra handlekurv
+
+  function removeFromCart(productId) {
+    setCart((oldCart) => {
+      const found = oldCart.find((item) => item.id === productId);
+      if (!found) return oldCart;
+
+      if (found.quantity > 1) {
+        return oldCart.map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        );
+      } else {
+        return oldCart.filter((item) => item.id !== productId);
+      }
+    });
+  }
+
   // summering av handlekurv
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -50,7 +69,7 @@ export default function App() {
         </section>
 
         <aside className="cart-aside">
-          <Cart items={cart} total={total} />
+          <Cart items={cart} total={total} onRemove={removeFromCart} />
         </aside>
       </div>
     </main>
