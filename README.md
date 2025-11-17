@@ -14,6 +14,12 @@ npm install
 npm run dev
 ```
 
+## Teknologi
+
+- [React](https://react.dev/) – frontend-rammeverk
+- [Vite](https://vitejs.dev/) – utviklingsserver og byggeverktøy
+- [ESLint](https://eslint.org/) – kodekvalitet og linting
+
 ## Funksjonalitet
 
 -**Viser en liste med produkter**
